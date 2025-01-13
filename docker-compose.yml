@@ -1,9 +1,8 @@
-version: '3'
-
 services:
   
   nagios:
     image: jasonrivers/nagios:latest
+    container_name: nagios
     volumes:
       - nagiosetc:/opt/nagios/etc
       - nagiosvar:/opt/nagios/var
@@ -12,7 +11,7 @@ services:
       - nagiosgraphetc:/opt/nagiosgraph/etc
     ports:
       - "8080:80"
-    restart: always    
+    restart: unless-stopped    
 
 volumes:
   nagiosetc:
