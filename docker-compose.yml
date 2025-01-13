@@ -4,15 +4,18 @@ services:
     image: jasonrivers/nagios:latest
     container_name: nagios
     volumes:
-      - ./nagios-etc/:/opt/nagios/etc/
-      - ./nagios-var/:/opt/nagios/var/
-      - ./custom-plugins:/opt/Custom-Nagios-Plugins
-      - ./nagiosgraph/var:/opt/nagiosgraph/var
-      - ./nagiosgraph/etc:/opt/nagiosgraph/etc
-    environment:
-      - NAGIOSADMIN_USER="User"
-      - NAGIOSADMIN_PASS="p4ssw0rd"
-      - NAGIOS_TIMEZONE="Europe/Madrid"
+      - nagiosetc:/opt/nagios/etc
+      - nagiosvar:/opt/nagios/var
+      - customplugins:/opt/Custom-Nagios-Plugins
+      - nagiosgraphvar:/opt/nagiosgraph/var
+      - nagiosgraphetc:/opt/nagiosgraph/etc
     ports:
-      - "8080:80"
+    - "8080:80"
     restart: unless-stopped
+
+volumes:
+    nagiosetc:
+    nagiosvar:
+    customplugins:
+    nagiosgraphvar:
+    nagiosgraphetc:
