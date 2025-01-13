@@ -1,6 +1,6 @@
 # Nagios
 
-Ver en "localhost:8080"
+Ver en "http://localhost:8080"
 
 Usuario: nagiosadmin
 
