@@ -1,21 +1,14 @@
 services:
-  
+
   nagios:
     image: jasonrivers/nagios:latest
     container_name: nagios
     volumes:
-      - nagiosetc:/opt/nagios/etc
-      - nagiosvar:/opt/nagios/var
-      - customplugins:/opt/Custom-Nagios-Plugins
-      - nagiosgraphvar:/opt/nagiosgraph/var
-      - nagiosgraphetc:/opt/nagiosgraph/etc
+      - ./nagios/etc/:/opt/nagios/etc/
+      - ./nagios/var:/opt/nagios/var/
+      - ./custom-plugins:/opt/Custom-Nagios-Plugins
+      - ./nagiosgraph/var:/opt/nagiosgraph/var
+      - ./nagiosgraph-/tc:/opt/nagiosgraph/etc
     ports:
       - "8080:80"
-    restart: unless-stopped    
-
-volumes:
-  nagiosetc:
-  nagiosvar:
-  customplugins:
-  nagiosgraphvar:
-  nagiosgraphetc:
+    restart: unless-stopped
