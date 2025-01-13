@@ -5,10 +5,10 @@ services:
     container_name: nagios
     volumes:
       - ./nagios-etc/:/opt/nagios/etc/
-      - ./nagios-var:/opt/nagios/var/
+      - ./nagios-var/:/opt/nagios/var/
       - ./custom-plugins:/opt/Custom-Nagios-Plugins
       - ./nagiosgraph/var:/opt/nagiosgraph/var
-      - ./nagiosgraph-/tc:/opt/nagiosgraph/etc
+      - ./nagiosgraph/etc:/opt/nagiosgraph/etc
     environment:
       - NAGIOSADMIN_USER="User"
       - NAGIOSADMIN_PASS="p4ssw0rd"
